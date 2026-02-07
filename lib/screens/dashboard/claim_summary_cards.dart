@@ -24,7 +24,7 @@ class ClaimSummaryCards extends StatelessWidget {
                         ? 2
                         : 2;
 
-            final childAspectRatio = constraints.maxWidth > 600 ? 1.5 : 1.4;
+            final childAspectRatio = constraints.maxWidth > 600 ? 1.3 : 1.2;
 
             return GridView.count(
               shrinkWrap: true,

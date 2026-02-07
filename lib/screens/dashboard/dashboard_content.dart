@@ -103,7 +103,7 @@ class DashboardContent extends StatelessWidget {
               : constraints.maxWidth > 600
                   ? 3
                   : 2;
-          final childAspectRatio = constraints.maxWidth > 600 ? 1.6 : 1.4;
+          final childAspectRatio = constraints.maxWidth > 600 ? 1.4 : 1.2;
 
           return GridView.count(
             shrinkWrap: true,

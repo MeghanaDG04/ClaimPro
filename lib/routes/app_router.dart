@@ -108,6 +108,18 @@ class AppRouter {
           settings,
         );
 
+      case RouteConstants.claims:
+        return _buildRoute(const DashboardScreen(), settings);
+
+      case RouteConstants.reports:
+      case RouteConstants.notifications:
+      case RouteConstants.profile:
+      case RouteConstants.settings:
+        return _buildRoute(
+          _buildComingSoonPage(settings.name ?? 'Page'),
+          settings,
+        );
+
       default:
         return _buildNotFoundRoute(settings);
     }
@@ -138,6 +150,37 @@ class AppRouter {
         );
       },
       transitionDuration: const Duration(milliseconds: 300),
+    );
+  }
+
+  static Widget _buildComingSoonPage(String routeName) {
+    final title = routeName
+        .replaceAll('/', '')
+        .replaceFirstMapped(RegExp(r'^[a-z]'), (m) => m[0]!.toUpperCase());
+    return Scaffold(
+      appBar: AppBar(title: Text(title)),
+      body: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            const Icon(Icons.construction, size: 80, color: Colors.grey),
+            const SizedBox(height: 16),
+            Text(
+              'Coming Soon',
+              style: const TextStyle(
+                fontSize: 24,
+                fontWeight: FontWeight.bold,
+                color: Colors.grey,
+              ),
+            ),
+            const SizedBox(height: 8),
+            Text(
+              '$title is under development',
+              style: const TextStyle(color: Colors.grey),
+            ),
+          ],
+        ),
+      ),
     );
   }
 

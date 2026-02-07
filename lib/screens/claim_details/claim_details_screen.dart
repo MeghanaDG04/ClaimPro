@@ -782,6 +782,7 @@ class _ClaimDetailsScreenState extends State<ClaimDetailsScreen> {
       child: Padding(
         padding: const EdgeInsets.only(left: 32),
         child: Row(
+          mainAxisSize: MainAxisSize.min,
           mainAxisAlignment: MainAxisAlignment.end,
           children: actions,
         ),
